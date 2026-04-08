@@ -296,9 +296,9 @@ export async function failStep(
  * Check if a mission is complete and finalize it.
  *
  * Rules:
- * - All steps succeeded → mission succeeded
- * - Any step failed → mission failed
- * - Steps still running/queued → incomplete (do nothing)
+ * - All steps succeeded â†’ mission succeeded
+ * - Any step failed â†’ mission failed
+ * - Steps still running/queued â†’ incomplete (do nothing)
  */
 export async function maybeFinalizeMissionIfDone(
   sb: SupabaseClient,

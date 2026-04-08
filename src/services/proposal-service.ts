@@ -19,7 +19,7 @@ import { emitEvent } from './event-service'
  * 3. Insert proposal with status 'pending'
  * 4. Emit event 'proposal_created'
  * 5. Evaluate auto-approve criteria
- * 6. If approved → create mission + steps, emit 'proposal_accepted'
+ * 6. If approved â†’ create mission + steps, emit 'proposal_accepted'
  * 7. Return result
  */
 export async function createProposalAndMaybeAutoApprove(

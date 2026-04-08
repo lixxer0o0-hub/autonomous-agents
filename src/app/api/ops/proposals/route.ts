@@ -10,7 +10,7 @@ import type { ProposalSource } from '@/types/proposal'
  * POST: Create a new proposal
  */
 export async function GET(request: NextRequest) {
-  const sb = createAdminClient()
+  const sb = createAdminClient() as any
   const { searchParams } = new URL(request.url)
   const status = searchParams.get('status')
   const hours = parseInt(searchParams.get('hours') ?? '24', 10)
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
  * - proposerAgent: string (optional)
  */
 export async function POST(request: NextRequest) {
-  const sb = createAdminClient()
+  const sb = createAdminClient() as any
 
   try {
     const body = await request.json()

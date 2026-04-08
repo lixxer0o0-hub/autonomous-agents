@@ -113,19 +113,19 @@ async function evaluateTriggerCondition(
 ): Promise<{ matched: boolean; reason?: string }> {
   switch (condition.type) {
     case 'tweet_engagement':
-      return evaluateTweetEngagement(sb, condition)
+      return evaluateTweetEngagement(sb, condition as { threshold?: number; metric?: string })
 
     case 'mission_status':
-      return evaluateMissionStatus(sb, condition)
+      return evaluateMissionStatus(sb, condition as { status?: string })
 
     case 'content_published':
-      return evaluateContentPublished(sb, condition)
+      return evaluateContentPublished(sb, condition as Record<string, unknown>)
 
     case 'insight_upvotes':
-      return evaluateInsightUpvotes(sb, condition)
+      return evaluateInsightUpvotes(sb, condition as { threshold?: number })
 
     case 'event_count':
-      return evaluateEventCount(sb, condition)
+      return evaluateEventCount(sb, condition as { eventType?: string; count?: number; hours?: number })
 
     default:
       return { matched: false, reason: `Unknown trigger type: ${condition.type}` }

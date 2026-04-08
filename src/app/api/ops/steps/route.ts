@@ -8,7 +8,7 @@ import { getQueuedSteps, getRunningSteps } from '@/services/mission-service'
  * GET: List queued or running steps
  */
 export async function GET(request: NextRequest) {
-  const sb = createAdminClient()
+  const sb = createAdminClient() as any
   const { searchParams } = new URL(request.url)
   const status = searchParams.get('status') ?? 'queued'
 

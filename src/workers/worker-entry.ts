@@ -10,7 +10,7 @@
  *   node --loader ts-node/esm worker-entry.ts
  *
  * Crontab example (run every 5 minutes):
- *   */5 * * * * cd /path/to/autonomous-agents && bun run worker-entry.ts >> /var/log/agent-worker.log 2>&1
+ *   `*\/5 * * * * cd /path/to/autonomous-agents && bun run worker-entry.ts`
  */
 
 import { AgentWorker, registerExecutor } from './index'

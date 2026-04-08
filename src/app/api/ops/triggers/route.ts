@@ -10,7 +10,7 @@ import { createAdminClient } from '@/lib/supabase/server'
  * DELETE: Delete a trigger rule
  */
 export async function GET(request: NextRequest) {
-  const sb = createAdminClient()
+  const sb = createAdminClient() as any as any
   const { searchParams } = new URL(request.url)
   const enabled = searchParams.get('enabled')
 
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const sb = createAdminClient()
+  const sb = createAdminClient() as any as any
 
   try {
     const body = await request.json()
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PUT(request: NextRequest) {
-  const sb = createAdminClient()
+  const sb = createAdminClient() as any as any
 
   try {
     const body = await request.json()
@@ -122,7 +122,7 @@ export async function PUT(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
-  const sb = createAdminClient()
+  const sb = createAdminClient() as any as any
   const { searchParams } = new URL(request.url)
   const id = searchParams.get('id')
 

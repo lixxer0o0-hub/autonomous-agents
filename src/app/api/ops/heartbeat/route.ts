@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const sb = createAdminClient()
+    const sb = createAdminClient() as any
 
     // Run all control plane operations with timeouts
     const [

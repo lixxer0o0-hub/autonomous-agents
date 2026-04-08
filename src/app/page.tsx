@@ -9,6 +9,7 @@ interface Proposal {
   step_kind: string
   status: string
   created_at: string
+  proposer_agent?: string | null
 }
 
 interface Mission {
@@ -92,7 +93,7 @@ export default function Home() {
     rejectedProposals: proposals.filter(p => p.status === 'rejected').length,
     queuedSteps: steps.length,
     autoApproveEnabled: policies.find(p => p.key === 'auto_approve')?.value?.enabled ?? true,
-    dailyQuota: policies.find(p => p.key === 'x_daily_quota')?.value?.limit ?? 10,
+    dailyQuota: (policies.find(p => p.key === 'x_daily_quota')?.value?.limit ?? 10) as number,
     tweetsToday: 0 // Would need to fetch from events
   }
 

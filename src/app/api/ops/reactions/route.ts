@@ -9,7 +9,7 @@ import { queueReaction, getPendingReactions } from '@/services/reaction-processo
  * POST: Queue a new reaction
  */
 export async function GET() {
-  const sb = createAdminClient()
+  const sb = createAdminClient() as any
 
   try {
     const reactions = await getPendingReactions(sb)
@@ -33,7 +33,7 @@ export async function GET() {
  * - payload: object (required)
  */
 export async function POST(request: NextRequest) {
-  const sb = createAdminClient()
+  const sb = createAdminClient() as any
 
   try {
     const body = await request.json()
